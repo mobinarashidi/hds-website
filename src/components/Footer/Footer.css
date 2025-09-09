@@ -1,0 +1,31 @@
+:root {
+    --footer-bg: #2c3e50;
+    --footer-text: #ecf0f1;
+}
+
+.footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 3rem;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.footer p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.heart-icon {
+    color: #e74c3c;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}

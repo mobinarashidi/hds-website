@@ -1,0 +1,52 @@
+[
+  {
+    "id": "seminar1",
+    "title": "Guest Speaker: Dr. Richard Sutton",
+    "video_links": [
+      { "title": "Lecture 2.1: Q-learning Explained", "youtube_url": "https://www.youtube.com/watch?v=MGqoLm2aAgc&t=4644s" }
+    ],
+    "pdf_files": [
+      {
+        "title": "Presentation Slides",
+        "url": "/pdfs/1-Introduction.pdf"
+      }
+    ],
+    "notebook_files": [
+      {
+        "title": "Companion Notebook",
+        "url": "/notebooks/sutton-notebook.ipynb"
+      }
+    ]
+  },
+  {
+    "id": "seminar2",
+    "title": "Advanced Topics in Model-Based RL",
+    "video_links": [
+      { "title": "Lecture 2.1: Q-learning Explained", "youtube_url": "https://www.youtube.com/watch?v=MGqoLm2aAgc&t=4644s" }
+    ],
+    "pdf_files": [
+      {
+        "title": "Lecture Paper",
+        "url": "/pdfs/advanced-rl-paper.pdf"
+      }
+    ],
+    "notebook_files": []
+  },
+  {
+    "id": "seminar3",
+    "title": "Multi-Agent Reinforcement Learning",
+    "youtube_video_id": "MULTI_AGENT_VIDEO_ID",
+    "pdf_files": [
+      {
+        "title": "Slides on Multi-Agent RL",
+        "url": "/pdfs/1-Introduction.pdf"
+      }
+    ],
+    "notebook_files": [
+      {
+        "title": "Multi-Agent Lab",
+        "url": "/notebooks/multi-agent-lab.ipynb"
+      }
+    ]
+  }
+]

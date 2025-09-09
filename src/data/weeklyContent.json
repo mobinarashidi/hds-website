@@ -1,0 +1,39 @@
+[
+  {
+    "week_number": 1,
+    "week_title": "Introduction to RL",
+    "description": "An overview of the fundamental concepts and history of reinforcement learning.",
+    "pdf_files": [
+      { "title": "Lecture 1 Slides", "url": "/pdfs/1-Introduction.pdf" },
+      { "title": "Assignment 1", "url": "/pdfs/2-Relations.pdf" }
+    ],
+    "video_links": [
+      { "title": "Lecture 1.1: What is RL?", "youtube_url": "https://www.youtube.com/watch?v=MGqoLm2aAgc&t=4644s" },
+      { "title": "Lecture 1.2: Key Components", "youtube_url": "https://www.youtube.com/watch?v=1VhnDdQsELo" }
+    ]
+  },
+  {
+    "week_number": 2,
+    "week_title": "Value-Based Methods",
+    "description": "Diving into Q-learning, SARSA, and deep Q-networks (DQN).",
+    "pdf_files": [
+      { "title": "Lecture 2 Slides", "url": "/pdfs/3-Relational Algebra.pdf" }
+    ],
+    "video_links": [
+      { "title": "Lecture 2.1: Q-learning Explained", "youtube_url": "https://www.youtube.com/watch?v=..." }
+    ]
+  },
+  {
+    "week_number": 3,
+    "week_title": "Policy-Based Methods",
+    "description": "Exploring Policy Gradient, Actor-Critic, and Proximal Policy Optimization (PPO).",
+    "pdf_files": [
+      { "title": "Lecture 3 Slides", "url": "/pdfs/4-Relational Calculus.pdf" },
+      { "title": "Paper on PPO", "url": "/pdfs/5-Semantic Modeling & ER.pdf" }
+    ],
+    "video_links": [
+      { "title": "Lecture 3.1: Policy Gradients", "youtube_url": "https://www.youtube.com/watch?v=..." },
+      { "title": "Lecture 3.2: Actor-Critic", "youtube_url": "https://www.youtube.com/watch?v=..." }
+    ]
+  }
+]

@@ -1,0 +1,208 @@
+{
+  "hw1": {
+    "title": "HW1: Introduction to RL",
+    "intro": "Welcome to the first homework assignment of the Deep Reinforcement Learning course! We are excited to see you apply the concepts learned in the lectures and workshops.",
+    "sections": [
+      {
+        "id": "homework",
+        "title": "Homework",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You can download the homework questions and the notebook from the following links:"
+          },
+          {
+            "type": "link",
+            "text": "HW1 Questions",
+            "url": "/path/to/HW1-Questions.pdf",
+            "download": true
+          },
+          {
+            "type": "link",
+            "text": "HW1 Notebook",
+            "url": "/path/to/HW1-Notebook.ipynb",
+            "download": true
+          },
+          {
+            "type": "paragraph",
+            "text": "You can use this template for your answers."
+          }
+        ]
+      },
+      {
+        "id": "explanation",
+        "title": "Explanation",
+        "content": [
+          {
+            "type": "youtube_video",
+            "embed_id": ""
+          }
+        ]
+      },
+      {
+        "id": "submission",
+        "title": "Submission",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Please submit your completed homework on Quera by the deadline:"
+          },
+          {
+            "type": "list",
+            "items": [
+              {
+                "text": "Submission Link:",
+                "link": "https://quera.ir/",
+                "link_text": "Quera Course Page"
+              },
+              {
+                "text": "Deadline:",
+                "link_text": "بهمن ۱۶ at 11:59 PM"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Good luck, and we look forward to your submissions!"
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "title": "Solution",
+        "content": [
+          {
+            "type": "link",
+            "text": "HW1 Solution Notebook",
+            "url": "/path/to/HW1-Solution-Notebook.ipynb",
+            "download": true
+          },
+          {
+            "type": "link",
+            "text": "HW1 Solution Slides",
+            "url": "/path/to/HW1-Solution-Slides.pdf",
+            "download": true
+          },
+          {
+            "type": "youtube_video",
+            "embed_id": "your_solution_video_id"
+          }
+        ]
+      }
+    ]
+  },
+  "hw2": {
+    "title": "HW2: Value-Based Methods",
+    "intro": "This week, we will explore Value-Based Methods in Reinforcement Learning.",
+    "sections": [
+      {
+        "id": "homework",
+        "title": "Homework",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Download the questions and notebook for this week's homework."
+          },
+          {
+            "type": "link",
+            "text": "HW2 Questions",
+            "url": "/path/to/HW2-Questions.pdf",
+            "download": true
+          },
+          {
+            "type": "link",
+            "text": "HW2 Notebook",
+            "url": "/path/to/HW2-Notebook.ipynb",
+            "download": true
+          }
+        ]
+      },
+      {
+        "id": "explanation",
+        "title": "Explanation",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Watch the video explanation for a deeper understanding of the concepts."
+          },
+          {
+            "type": "youtube_video",
+            "embed_id": "another_youtube_video_id"
+          }
+        ]
+      },
+      {
+        "id": "submission",
+        "title": "Submission",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Submit your work on the course website."
+          }
+        ]
+      }
+    ]
+  },
+  "hw3": {
+    "title": "HW3: Policy-Based Methods",
+    "intro": "This homework focuses on Policy-Based Methods. Good luck!",
+    "sections": [
+      {
+        "id": "homework",
+        "title": "Homework",
+        "content": [
+          {
+            "type": "link",
+            "text": "HW3 Questions",
+            "url": "/path/to/HW3-Questions.pdf",
+            "download": true
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "title": "Solution",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Solutions are available here:"
+          },
+          {
+            "type": "link",
+            "text": "HW3 Solution Notebook",
+            "url": "/path/to/HW3-Solution-Notebook.ipynb",
+            "download": true
+          }
+        ]
+      }
+    ]
+  },
+  "hw4": {
+    "title": "HW4: Advanced Methods",
+    "intro": "An introduction to more advanced topics.",
+    "sections": [
+      {
+        "id": "homework",
+        "title": "Homework",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Files for this week:"
+          },
+          {
+            "type": "link",
+            "text": "HW4 Questions",
+            "url": "/path/to/HW4-Questions.pdf",
+            "download": true
+          },
+          {
+            "type": "link",
+            "text": "HW4 Notebook",
+            "url": "/path/to/HW4-Notebook.ipynb",
+            "download": true
+          }
+        ]
+      }
+    ]
+  }
+}
