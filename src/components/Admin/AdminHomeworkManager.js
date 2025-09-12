@@ -39,7 +39,6 @@ const AdminHomeworkManager = () => {
   };
 
   const handleCreate = () => {
-    console.log("Create button clicked");
     setEditingHomework(null);
     setShowForm(true);
   };
@@ -107,23 +106,6 @@ const AdminHomeworkManager = () => {
             setEditingHomework(null);
           }}
         />
-      )}
-
-      {/* Debug info */}
-      {process.env.NODE_ENV === "development" && (
-        <div
-          style={{ padding: "10px", background: "#f0f0f0", margin: "10px 0" }}
-        >
-          <strong>Debug Info:</strong>
-          <br />
-          showForm: {showForm.toString()}
-          <br />
-          loading: {loading.toString()}
-          <br />
-          error: {error || "none"}
-          <br />
-          homeworks count: {homeworks.length}
-        </div>
       )}
 
       {!loading && !error && (

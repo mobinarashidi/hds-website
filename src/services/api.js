@@ -35,7 +35,9 @@ export const homeworkAPI = {
   // Get all homeworks
   getAll: async () => {
     const response = await fetch(`${API_BASE_URL}/homeworks/`);
-    return handleResponse(response);
+    const data = await handleResponse(response);
+    // Handle paginated response
+    return data.results || data;
   },
 
   // Get homework by ID
@@ -50,7 +52,9 @@ export const seminarAPI = {
   // Get all seminars
   getAll: async () => {
     const response = await fetch(`${API_BASE_URL}/seminars/`);
-    return handleResponse(response);
+    const data = await handleResponse(response);
+    // Handle paginated response
+    return data.results || data;
   },
 
   // Get seminar by ID
@@ -65,7 +69,9 @@ export const weeklyContentAPI = {
   // Get all weekly content
   getAll: async () => {
     const response = await fetch(`${API_BASE_URL}/weekly-content/`);
-    return handleResponse(response);
+    const data = await handleResponse(response);
+    // Handle paginated response
+    return data.results || data;
   },
 
   // Get weekly content by week number
@@ -73,7 +79,9 @@ export const weeklyContentAPI = {
     const response = await fetch(
       `${API_BASE_URL}/weekly-content/?week_number=${weekNumber}`
     );
-    return handleResponse(response);
+    const data = await handleResponse(response);
+    // Handle paginated response
+    return data.results || data;
   },
 };
 
@@ -82,7 +90,9 @@ export const taClassAPI = {
   // Get all TA classes
   getAll: async () => {
     const response = await fetch(`${API_BASE_URL}/ta-classes/`);
-    return handleResponse(response);
+    const data = await handleResponse(response);
+    // Handle paginated response
+    return data.results || data;
   },
 
   // Get TA class by week number
@@ -90,7 +100,9 @@ export const taClassAPI = {
     const response = await fetch(
       `${API_BASE_URL}/ta-classes/?week_number=${weekNumber}`
     );
-    return handleResponse(response);
+    const data = await handleResponse(response);
+    // Handle paginated response
+    return data.results || data;
   },
 };
 
