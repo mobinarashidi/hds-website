@@ -13,13 +13,27 @@ const HomeWorks = () => {
     const fetchHomeworks = async () => {
       try {
         setLoading(true);
+        setError(null);
         const homeworks = await homeworkAPI.getAll();
+
+        if (!homeworks) {
+          setError("No data received from server");
+          return;
+        }
+
+        if (!Array.isArray(homeworks)) {
+          setError("Invalid data format received");
+          return;
+        }
+
         setHomeworksList(homeworks);
         if (homeworks.length > 0) {
           setSelectedHw(homeworks[0].id);
+        } else {
+          setError("No homeworks available");
         }
       } catch (err) {
-        setError("Failed to load homeworks");
+        setError(`Failed to load homeworks: ${err.message}`);
         console.error("Error fetching homeworks:", err);
       } finally {
         setLoading(false);
@@ -30,11 +44,28 @@ const HomeWorks = () => {
   }, []);
 
   if (loading) {
-    return <div className="homework-container">Loading homeworks...</div>;
+    return (
+      <div className="homework-container">
+        <div className="loading-message">Loading homeworks...</div>
+      </div>
+    );
   }
 
   if (error) {
-    return <div className="homework-container">Error: {error}</div>;
+    return (
+      <div className="homework-container">
+        <div className="error-message">
+          <h3>⚠️ Error Loading Homeworks</h3>
+          <p>{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="retry-button"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (

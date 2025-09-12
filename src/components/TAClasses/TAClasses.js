@@ -13,13 +13,27 @@ export default function TAClasses() {
     const fetchTAClasses = async () => {
       try {
         setLoading(true);
+        setError(null);
         const taClassesData = await taClassAPI.getAll();
+
+        if (!taClassesData) {
+          setError("No data received from server");
+          return;
+        }
+
+        if (!Array.isArray(taClassesData)) {
+          setError("Invalid data format received");
+          return;
+        }
+
         setTaClasses(taClassesData);
         if (taClassesData.length > 0) {
           setSelectedWeek(taClassesData[0].week_number);
+        } else {
+          setError("No TA classes available");
         }
       } catch (err) {
-        setError("Failed to load TA classes");
+        setError(`Failed to load TA classes: ${err.message}`);
         console.error("Error fetching TA classes:", err);
       } finally {
         setLoading(false);
@@ -34,11 +48,28 @@ export default function TAClasses() {
   );
 
   if (loading) {
-    return <div className="lectures-container">Loading TA classes...</div>;
+    return (
+      <div className="lectures-container">
+        <div className="loading-message">Loading TA classes...</div>
+      </div>
+    );
   }
 
   if (error) {
-    return <div className="lectures-container">Error: {error}</div>;
+    return (
+      <div className="lectures-container">
+        <div className="error-message">
+          <h3>⚠️ Error Loading TA Classes</h3>
+          <p>{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="retry-button"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (

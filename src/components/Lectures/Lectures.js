@@ -13,13 +13,27 @@ export default function Lectures() {
     const fetchLectures = async () => {
       try {
         setLoading(true);
+        setError(null);
         const lecturesData = await weeklyContentAPI.getAll();
+
+        if (!lecturesData) {
+          setError("No data received from server");
+          return;
+        }
+
+        if (!Array.isArray(lecturesData)) {
+          setError("Invalid data format received");
+          return;
+        }
+
         setLectures(lecturesData);
         if (lecturesData.length > 0) {
           setSelectedWeek(lecturesData[0].week_number);
+        } else {
+          setError("No lectures available");
         }
       } catch (err) {
-        setError("Failed to load lectures");
+        setError(`Failed to load lectures: ${err.message}`);
         console.error("Error fetching lectures:", err);
       } finally {
         setLoading(false);
@@ -34,11 +48,28 @@ export default function Lectures() {
   );
 
   if (loading) {
-    return <div className="lectures-container">Loading lectures...</div>;
+    return (
+      <div className="lectures-container">
+        <div className="loading-message">Loading lectures...</div>
+      </div>
+    );
   }
 
   if (error) {
-    return <div className="lectures-container">Error: {error}</div>;
+    return (
+      <div className="lectures-container">
+        <div className="error-message">
+          <h3>⚠️ Error Loading Lectures</h3>
+          <p>{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="retry-button"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (

@@ -4,9 +4,30 @@ const API_BASE_URL =
 // Helper function to handle API responses
 const handleResponse = async (response) => {
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+    let errorMessage = `HTTP error! status: ${response.status}`;
+    try {
+      const errorData = await response.json();
+      errorMessage = errorData.message || errorData.error || errorMessage;
+    } catch (e) {
+      // If response is not JSON, use the status text
+      errorMessage = response.statusText || errorMessage;
+    }
+    throw new Error(errorMessage);
   }
-  return response.json();
+
+  // Handle empty responses
+  const contentType = response.headers.get("content-type");
+  if (contentType && contentType.includes("application/json")) {
+    try {
+      const data = await response.json();
+      return data;
+    } catch (e) {
+      console.warn("Failed to parse JSON response:", e);
+      return null;
+    }
+  }
+
+  return null;
 };
 
 // API service for homeworks
