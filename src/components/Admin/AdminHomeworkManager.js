@@ -39,6 +39,7 @@ const AdminHomeworkManager = () => {
   };
 
   const handleCreate = () => {
+    console.log("Create button clicked");
     setEditingHomework(null);
     setShowForm(true);
   };
@@ -97,61 +98,75 @@ const AdminHomeworkManager = () => {
         </div>
       )}
 
-      {!loading && !error && (
-        <>
-          {showForm && (
-            <HomeworkForm
-              homework={editingHomework}
-              onSubmit={handleFormSubmit}
-              onCancel={() => {
-                setShowForm(false);
-                setEditingHomework(null);
-              }}
-            />
-          )}
+      {showForm && (
+        <HomeworkForm
+          homework={editingHomework}
+          onSubmit={handleFormSubmit}
+          onCancel={() => {
+            setShowForm(false);
+            setEditingHomework(null);
+          }}
+        />
+      )}
 
-          <div className="items-list">
-            {homeworks.map((homework) => (
-              <div key={homework.id} className="item-card">
-                <div className="item-info">
-                  <h3>{homework.title}</h3>
-                  <p>{homework.intro}</p>
-                  <div className="homework-meta">
-                    <span className="meta-item">
-                      <strong>ID:</strong> {homework.id}
-                    </span>
-                    <span className="meta-item">
-                      <strong>Sections:</strong>{" "}
-                      {homework.sections?.length || 0}
-                    </span>
-                    <span className="meta-item">
-                      <strong>Total Content:</strong>{" "}
-                      {homework.sections?.reduce(
-                        (total, section) =>
-                          total + (section.content?.length || 0),
-                        0
-                      ) || 0}
-                    </span>
-                  </div>
-                </div>
-                <div className="item-actions">
-                  <button
-                    onClick={() => handleEdit(homework)}
-                    className="edit-btn"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(homework.id)}
-                    className="delete-btn"
-                  >
-                    Delete
-                  </button>
+      {/* Debug info */}
+      {process.env.NODE_ENV === "development" && (
+        <div
+          style={{ padding: "10px", background: "#f0f0f0", margin: "10px 0" }}
+        >
+          <strong>Debug Info:</strong>
+          <br />
+          showForm: {showForm.toString()}
+          <br />
+          loading: {loading.toString()}
+          <br />
+          error: {error || "none"}
+          <br />
+          homeworks count: {homeworks.length}
+        </div>
+      )}
+
+      {!loading && !error && (
+        <div className="items-list">
+          {homeworks.map((homework) => (
+            <div key={homework.id} className="item-card">
+              <div className="item-info">
+                <h3>{homework.title}</h3>
+                <p>{homework.intro}</p>
+                <div className="homework-meta">
+                  <span className="meta-item">
+                    <strong>ID:</strong> {homework.id}
+                  </span>
+                  <span className="meta-item">
+                    <strong>Sections:</strong> {homework.sections?.length || 0}
+                  </span>
+                  <span className="meta-item">
+                    <strong>Total Content:</strong>{" "}
+                    {homework.sections?.reduce(
+                      (total, section) =>
+                        total + (section.content?.length || 0),
+                      0
+                    ) || 0}
+                  </span>
                 </div>
               </div>
-            ))}
-          </div>
-        </>
+              <div className="item-actions">
+                <button
+                  onClick={() => handleEdit(homework)}
+                  className="edit-btn"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(homework.id)}
+                  className="delete-btn"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

@@ -97,43 +97,41 @@ const AdminSeminarManager = () => {
         </div>
       )}
 
-      {!loading && !error && (
-        <>
-          {showForm && (
-            <SeminarForm
-              seminar={editingSeminar}
-              onSubmit={handleFormSubmit}
-              onCancel={() => {
-                setShowForm(false);
-                setEditingSeminar(null);
-              }}
-            />
-          )}
+      {showForm && (
+        <SeminarForm
+          seminar={editingSeminar}
+          onSubmit={handleFormSubmit}
+          onCancel={() => {
+            setShowForm(false);
+            setEditingSeminar(null);
+          }}
+        />
+      )}
 
-          <div className="items-list">
-            {seminars.map((seminar) => (
-              <div key={seminar.id} className="item-card">
-                <div className="item-info">
-                  <h3>{seminar.title}</h3>
-                </div>
-                <div className="item-actions">
-                  <button
-                    onClick={() => handleEdit(seminar)}
-                    className="edit-btn"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(seminar.id)}
-                    className="delete-btn"
-                  >
-                    Delete
-                  </button>
-                </div>
+      {!loading && !error && (
+        <div className="items-list">
+          {seminars.map((seminar) => (
+            <div key={seminar.id} className="item-card">
+              <div className="item-info">
+                <h3>{seminar.title}</h3>
               </div>
-            ))}
-          </div>
-        </>
+              <div className="item-actions">
+                <button
+                  onClick={() => handleEdit(seminar)}
+                  className="edit-btn"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(seminar.id)}
+                  className="delete-btn"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

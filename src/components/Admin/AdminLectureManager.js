@@ -100,46 +100,44 @@ const AdminLectureManager = () => {
         </div>
       )}
 
-      {!loading && !error && (
-        <>
-          {showForm && (
-            <LectureForm
-              lecture={editingLecture}
-              onSubmit={handleFormSubmit}
-              onCancel={() => {
-                setShowForm(false);
-                setEditingLecture(null);
-              }}
-            />
-          )}
+      {showForm && (
+        <LectureForm
+          lecture={editingLecture}
+          onSubmit={handleFormSubmit}
+          onCancel={() => {
+            setShowForm(false);
+            setEditingLecture(null);
+          }}
+        />
+      )}
 
-          <div className="items-list">
-            {lectures.map((lecture) => (
-              <div key={lecture.week_number} className="item-card">
-                <div className="item-info">
-                  <h3>
-                    Week {lecture.week_number}: {lecture.week_title}
-                  </h3>
-                  <p>{lecture.description}</p>
-                </div>
-                <div className="item-actions">
-                  <button
-                    onClick={() => handleEdit(lecture)}
-                    className="edit-btn"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(lecture.week_number)}
-                    className="delete-btn"
-                  >
-                    Delete
-                  </button>
-                </div>
+      {!loading && !error && (
+        <div className="items-list">
+          {lectures.map((lecture) => (
+            <div key={lecture.week_number} className="item-card">
+              <div className="item-info">
+                <h3>
+                  Week {lecture.week_number}: {lecture.week_title}
+                </h3>
+                <p>{lecture.description}</p>
               </div>
-            ))}
-          </div>
-        </>
+              <div className="item-actions">
+                <button
+                  onClick={() => handleEdit(lecture)}
+                  className="edit-btn"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(lecture.week_number)}
+                  className="delete-btn"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
