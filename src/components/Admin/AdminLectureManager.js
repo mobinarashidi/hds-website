@@ -16,10 +16,22 @@ const AdminLectureManager = () => {
   const fetchLectures = async () => {
     try {
       setLoading(true);
+      setError("");
       const response = await weeklyContentAPI.getAll();
+
+      if (!response) {
+        setError("No data received from server");
+        return;
+      }
+
+      if (!Array.isArray(response)) {
+        setError("Invalid data format received");
+        return;
+      }
+
       setLectures(response);
     } catch (err) {
-      setError("Failed to load lectures");
+      setError(`Failed to load lectures: ${err.message}`);
       console.error("Error fetching lectures:", err);
     } finally {
       setLoading(false);
@@ -68,7 +80,25 @@ const AdminLectureManager = () => {
   };
 
   if (loading) {
-    return <div>Loading lectures...</div>;
+    return (
+      <div className="admin-manager">
+        <div className="loading-message">Loading lectures...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="admin-manager">
+        <div className="error-message">
+          <h3>⚠️ Error Loading Lectures</h3>
+          <p>{error}</p>
+          <button onClick={fetchLectures} className="retry-button">
+            Retry
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -79,8 +109,6 @@ const AdminLectureManager = () => {
           Create New Lecture
         </button>
       </div>
-
-      {error && <div className="error-message">{error}</div>}
 
       {showForm && (
         <LectureForm

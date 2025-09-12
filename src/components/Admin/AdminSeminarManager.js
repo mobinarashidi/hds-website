@@ -16,10 +16,22 @@ const AdminSeminarManager = () => {
   const fetchSeminars = async () => {
     try {
       setLoading(true);
+      setError("");
       const response = await seminarAPI.getAll();
+
+      if (!response) {
+        setError("No data received from server");
+        return;
+      }
+
+      if (!Array.isArray(response)) {
+        setError("Invalid data format received");
+        return;
+      }
+
       setSeminars(response);
     } catch (err) {
-      setError("Failed to load seminars");
+      setError(`Failed to load seminars: ${err.message}`);
       console.error("Error fetching seminars:", err);
     } finally {
       setLoading(false);
@@ -65,7 +77,25 @@ const AdminSeminarManager = () => {
   };
 
   if (loading) {
-    return <div>Loading seminars...</div>;
+    return (
+      <div className="admin-manager">
+        <div className="loading-message">Loading seminars...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="admin-manager">
+        <div className="error-message">
+          <h3>⚠️ Error Loading Seminars</h3>
+          <p>{error}</p>
+          <button onClick={fetchSeminars} className="retry-button">
+            Retry
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -76,8 +106,6 @@ const AdminSeminarManager = () => {
           Create New Seminar
         </button>
       </div>
-
-      {error && <div className="error-message">{error}</div>}
 
       {showForm && (
         <SeminarForm

@@ -16,10 +16,22 @@ const AdminTAClassManager = () => {
   const fetchTAClasses = async () => {
     try {
       setLoading(true);
+      setError("");
       const response = await taClassAPI.getAll();
+
+      if (!response) {
+        setError("No data received from server");
+        return;
+      }
+
+      if (!Array.isArray(response)) {
+        setError("Invalid data format received");
+        return;
+      }
+
       setTaClasses(response);
     } catch (err) {
-      setError("Failed to load TA classes");
+      setError(`Failed to load TA classes: ${err.message}`);
       console.error("Error fetching TA classes:", err);
     } finally {
       setLoading(false);
@@ -65,7 +77,25 @@ const AdminTAClassManager = () => {
   };
 
   if (loading) {
-    return <div>Loading TA classes...</div>;
+    return (
+      <div className="admin-manager">
+        <div className="loading-message">Loading TA classes...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="admin-manager">
+        <div className="error-message">
+          <h3>⚠️ Error Loading TA Classes</h3>
+          <p>{error}</p>
+          <button onClick={fetchTAClasses} className="retry-button">
+            Retry
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -76,8 +106,6 @@ const AdminTAClassManager = () => {
           Create New TA Class
         </button>
       </div>
-
-      {error && <div className="error-message">{error}</div>}
 
       {showForm && (
         <TAClassForm

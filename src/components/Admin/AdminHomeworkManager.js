@@ -16,10 +16,22 @@ const AdminHomeworkManager = () => {
   const fetchHomeworks = async () => {
     try {
       setLoading(true);
+      setError("");
       const response = await homeworkAPI.getAll();
+
+      if (!response) {
+        setError("No data received from server");
+        return;
+      }
+
+      if (!Array.isArray(response)) {
+        setError("Invalid data format received");
+        return;
+      }
+
       setHomeworks(response);
     } catch (err) {
-      setError("Failed to load homeworks");
+      setError(`Failed to load homeworks: ${err.message}`);
       console.error("Error fetching homeworks:", err);
     } finally {
       setLoading(false);
@@ -65,7 +77,25 @@ const AdminHomeworkManager = () => {
   };
 
   if (loading) {
-    return <div>Loading homeworks...</div>;
+    return (
+      <div className="admin-manager">
+        <div className="loading-message">Loading homeworks...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="admin-manager">
+        <div className="error-message">
+          <h3>⚠️ Error Loading Homeworks</h3>
+          <p>{error}</p>
+          <button onClick={fetchHomeworks} className="retry-button">
+            Retry
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -76,8 +106,6 @@ const AdminHomeworkManager = () => {
           Create New Homework
         </button>
       </div>
-
-      {error && <div className="error-message">{error}</div>}
 
       {showForm && (
         <HomeworkForm

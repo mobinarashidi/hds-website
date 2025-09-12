@@ -17,10 +17,19 @@ const AdminPanel = ({ onLogout }) => {
 
   const checkAdminStatus = async () => {
     try {
+      setLoading(true);
       const response = await adminAPI.getStatus();
-      setIsAdmin(response.is_admin);
+
+      if (!response) {
+        console.error("No response from admin status API");
+        setIsAdmin(false);
+        return;
+      }
+
+      setIsAdmin(response.is_admin || false);
     } catch (err) {
       console.error("Error checking admin status:", err);
+      setIsAdmin(false);
     } finally {
       setLoading(false);
     }
@@ -37,13 +46,28 @@ const AdminPanel = ({ onLogout }) => {
   };
 
   if (loading) {
-    return <div className="admin-panel">Checking admin status...</div>;
+    return (
+      <div className="admin-panel">
+        <div className="loading-message">Checking admin status...</div>
+      </div>
+    );
   }
 
   if (!isAdmin) {
     return (
       <div className="admin-panel">
-        Access denied. Admin privileges required.
+        <div className="error-message">
+          <h3>🚫 Access Denied</h3>
+          <p>
+            Admin privileges required. Please log in with admin credentials.
+          </p>
+          <button
+            onClick={() => window.location.reload()}
+            className="retry-button"
+          >
+            Retry
+          </button>
+        </div>
       </div>
     );
   }
@@ -97,5 +121,3 @@ const AdminPanel = ({ onLogout }) => {
 };
 
 export default AdminPanel;
-
-
