@@ -76,28 +76,6 @@ const AdminTAClassManager = () => {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="admin-manager">
-        <div className="loading-message">Loading TA classes...</div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="admin-manager">
-        <div className="error-message">
-          <h3>⚠️ Error Loading TA Classes</h3>
-          <p>{error}</p>
-          <button onClick={fetchTAClasses} className="retry-button">
-            Retry
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="admin-manager">
       <div className="manager-header">
@@ -107,40 +85,59 @@ const AdminTAClassManager = () => {
         </button>
       </div>
 
-      {showForm && (
-        <TAClassForm
-          taClass={editingTAClass}
-          onSubmit={handleFormSubmit}
-          onCancel={() => {
-            setShowForm(false);
-            setEditingTAClass(null);
-          }}
-        />
+      {loading && <div className="loading-message">Loading TA classes...</div>}
+
+      {error && (
+        <div className="error-message">
+          <h3>⚠️ Error Loading TA Classes</h3>
+          <p>{error}</p>
+          <button onClick={fetchTAClasses} className="retry-button">
+            Retry
+          </button>
+        </div>
       )}
 
-      <div className="items-list">
-        {taClasses.map((taClass) => (
-          <div key={taClass.week_number} className="item-card">
-            <div className="item-info">
-              <h3>
-                Week {taClass.week_number}: {taClass.week_title}
-              </h3>
-              <p>{taClass.description}</p>
-            </div>
-            <div className="item-actions">
-              <button onClick={() => handleEdit(taClass)} className="edit-btn">
-                Edit
-              </button>
-              <button
-                onClick={() => handleDelete(taClass.week_number)}
-                className="delete-btn"
-              >
-                Delete
-              </button>
-            </div>
+      {!loading && !error && (
+        <>
+          {showForm && (
+            <TAClassForm
+              taClass={editingTAClass}
+              onSubmit={handleFormSubmit}
+              onCancel={() => {
+                setShowForm(false);
+                setEditingTAClass(null);
+              }}
+            />
+          )}
+
+          <div className="items-list">
+            {taClasses.map((taClass) => (
+              <div key={taClass.week_number} className="item-card">
+                <div className="item-info">
+                  <h3>
+                    Week {taClass.week_number}: {taClass.week_title}
+                  </h3>
+                  <p>{taClass.description}</p>
+                </div>
+                <div className="item-actions">
+                  <button
+                    onClick={() => handleEdit(taClass)}
+                    className="edit-btn"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(taClass.week_number)}
+                    className="delete-btn"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      )}
     </div>
   );
 };

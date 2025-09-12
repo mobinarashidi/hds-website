@@ -79,28 +79,6 @@ const AdminLectureManager = () => {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="admin-manager">
-        <div className="loading-message">Loading lectures...</div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="admin-manager">
-        <div className="error-message">
-          <h3>⚠️ Error Loading Lectures</h3>
-          <p>{error}</p>
-          <button onClick={fetchLectures} className="retry-button">
-            Retry
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="admin-manager">
       <div className="manager-header">
@@ -110,40 +88,59 @@ const AdminLectureManager = () => {
         </button>
       </div>
 
-      {showForm && (
-        <LectureForm
-          lecture={editingLecture}
-          onSubmit={handleFormSubmit}
-          onCancel={() => {
-            setShowForm(false);
-            setEditingLecture(null);
-          }}
-        />
+      {loading && <div className="loading-message">Loading lectures...</div>}
+
+      {error && (
+        <div className="error-message">
+          <h3>⚠️ Error Loading Lectures</h3>
+          <p>{error}</p>
+          <button onClick={fetchLectures} className="retry-button">
+            Retry
+          </button>
+        </div>
       )}
 
-      <div className="items-list">
-        {lectures.map((lecture) => (
-          <div key={lecture.week_number} className="item-card">
-            <div className="item-info">
-              <h3>
-                Week {lecture.week_number}: {lecture.week_title}
-              </h3>
-              <p>{lecture.description}</p>
-            </div>
-            <div className="item-actions">
-              <button onClick={() => handleEdit(lecture)} className="edit-btn">
-                Edit
-              </button>
-              <button
-                onClick={() => handleDelete(lecture.week_number)}
-                className="delete-btn"
-              >
-                Delete
-              </button>
-            </div>
+      {!loading && !error && (
+        <>
+          {showForm && (
+            <LectureForm
+              lecture={editingLecture}
+              onSubmit={handleFormSubmit}
+              onCancel={() => {
+                setShowForm(false);
+                setEditingLecture(null);
+              }}
+            />
+          )}
+
+          <div className="items-list">
+            {lectures.map((lecture) => (
+              <div key={lecture.week_number} className="item-card">
+                <div className="item-info">
+                  <h3>
+                    Week {lecture.week_number}: {lecture.week_title}
+                  </h3>
+                  <p>{lecture.description}</p>
+                </div>
+                <div className="item-actions">
+                  <button
+                    onClick={() => handleEdit(lecture)}
+                    className="edit-btn"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(lecture.week_number)}
+                    className="delete-btn"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      )}
     </div>
   );
 };
