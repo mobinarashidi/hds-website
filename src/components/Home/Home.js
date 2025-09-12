@@ -58,7 +58,7 @@ const Home = () => {
             <div ref={heroRef} className="welcome-hero-section">
                 <div className="hero-content">
                     <h1>Welcome to High Dimensional Statistics</h1>
-                    <p>Sharif University of Technology | Spring 2025</p>
+                    <p>Sharif University of Technology | Fall 2025</p>
                     <button onClick={scrollToContent} className="scroll-down-btn">
                         Explore
                         <span className="arrow-icon">↓</span>
