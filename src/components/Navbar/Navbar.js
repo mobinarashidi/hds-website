@@ -31,9 +31,6 @@ const Navbar = () => {
         <Link to="/" onClick={closeMenu}>
           Home
         </Link>
-        <Link to="/Calendar" onClick={closeMenu}>
-          Calendar
-        </Link>
         <Link to="/Lectures" onClick={closeMenu}>
           Lectures
         </Link>

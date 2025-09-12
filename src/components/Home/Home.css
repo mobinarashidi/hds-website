@@ -12,10 +12,14 @@
 }
 
 body {
-    background-color: var(--background-color);
+   /* background-color: var(--background-color);*/
+
     font-family: 'Poppins', sans-serif;
     color: var(--text-color-light);
     margin: 0;
+    overflow-x: hidden;
+    padding: 0;
+    background-color: var(--background-color)
 }
 
 .home-page-container {
@@ -26,17 +30,20 @@ body {
 .welcome-hero-section {
     position: sticky;
     top: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #fff, #555555);
+    background: transparent;
     color: #2c3e50;
     text-align: center;
     transition: opacity 0.5s ease-in-out;
     z-index: 1;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 .hero-content h1 {
@@ -55,7 +62,7 @@ body {
 .scroll-down-btn {
     background: rgba(255, 255, 255, 0.2);
     border: 2px solid #2c3e50;
-    color: #fff;
+    color: #2c3e50;
     padding: 12px 24px;
     font-size: 1.1rem;
     font-weight: 600;

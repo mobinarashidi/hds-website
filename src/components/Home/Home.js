@@ -66,7 +66,9 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="content-and-sidebar-wrapper">
+            {/*
+
+                 <div className="content-and-sidebar-wrapper">
                 <main ref={mainContentRef} className="main-content">
                     <section id="course-description" className="course-description-section">
                         <h2>Course Description</h2>
@@ -291,6 +293,8 @@ const Home = () => {
                     </div>
                 </aside>
             </div>
+            */}
+
         </div>
     );
 };

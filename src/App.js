@@ -13,7 +13,6 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/Calendar" element={<CalendarPage />} />
         <Route path="/Lectures" element={<LecturePage />} />
         <Route path="/HomeWorks" element={<HomeWorkPage />} />
         <Route path="/TAClasses" element={<TAClassPage />} />
