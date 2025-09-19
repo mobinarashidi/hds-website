@@ -69,6 +69,10 @@ body {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .scroll-down-btn:hover {
@@ -485,18 +489,20 @@ section.fade-in {
     }
 
     .instructor-section,
-    .assistants-section {
+    .assistants-section,
+    .head-assistants-section{
         padding: 1rem;
     }
 
     .ta-card,
-    .instructor-card {
+    .instructor-card,
+    .head-assistant-card{
         padding: 1rem;
         margin-top: 1rem;
     }
 
     .ta-image,
-    .instructor-photo {
+    .instructor-photo{
         width: 70px;
         height: 70px;
     }
@@ -531,31 +537,94 @@ section.fade-in {
     .clean-table {
         font-size: 0.7em;
     }
+
+    .head-card-container {
+        justify-content: center;
+    }
+
+    .head-assistant-card {
+        width: 90%;
+    }
+
+    .assistant-photo {
+        width: 70px !important;
+        height: 70px !important;
+        margin-bottom: 0.5rem;
+    }
+
+    .head-assistant-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .head-assistant-info p {
+        font-size: 0.4rem;
+    }
+
+    .head-card-container {
+        justify-content: center;
+    }
+
+    .assistant-info p {
+        font-size: 0.7rem !important;
+    }
 }
 
-.arrow-icon {
-    font-size: 1.3em;
-    font-weight: bold;
-    color: transparent;
-    -webkit-text-stroke: 2px #2c3e50;
-    text-stroke: 2px #2c3e50;
-    transition: all 0.3s ease;
+.arrow-icon svg {
     animation: outlineBounce 2s infinite;
+    transition: stroke 0.3s ease;
 }
 
-.scroll-down-btn:hover .arrow-icon {
-    color: #1abc9c;
-    -webkit-text-stroke: 2px #1abc9c;
-    text-stroke: 2px #1abc9c;
+.scroll-down-btn:hover .arrow-icon svg path {
+    stroke: #1abc9c;
 }
 
 @keyframes outlineBounce {
     0%, 100% {
         transform: translateY(0);
-        -webkit-text-stroke-width: 2px;
     }
     50% {
         transform: translateY(3px);
-        -webkit-text-stroke-width: 3px;
     }
+}
+
+
+.head-assistants-section {
+    padding: 1rem;
+}
+
+.head-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.head-assistant-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 80%;
+}
+
+.assistant-photo img{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+.assistant-info h3 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.assistant-info p {
+    font-size: 1rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    color: #555;
 }

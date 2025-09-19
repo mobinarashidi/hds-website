@@ -59,28 +59,44 @@ const Home = () => {
                 <div className="hero-content">
                     <h1>Welcome to High Dimensional Statistics</h1>
                     <p>Sharif University of Technology | Fall 2025</p>
-                    <button onClick={scrollToContent} className="scroll-down-btn">
-                        Explore
-                        <span className="arrow-icon">↓</span>
-                    </button>
+                    <div className="scroll-container">
+                        <button onClick={scrollToContent} className="scroll-down-btn">
+                            Explore
+                            <span className="arrow-icon">
+                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="#2c3e50" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"/>
+                         </svg>
+                       </span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
-                 <div className="content-and-sidebar-wrapper">
-                     <main ref={mainContentRef} className="main-content">
-                         <section id="course-description" className="course-description-section">
-                             <h2>Course Description</h2>
-                             <p>
-                                 Recent years have witnessed an explosion in the volume and variety of data collected in
-                                 all scientific disciplines and industrial settings. Such massive data sets present a
-                                 number of challenges to researchers in statistics and machine learning.
-                                 High-dimensional statistics provides a self-contained framework for tackling these
-                                 challenges. The field is central to helping researchers in statistics, machine
-                                 learning, and related areas understand, apply, and adapt modern statistical methods
-                                 suited to large-scale data.
-
+            <div className="content-and-sidebar-wrapper">
+                <main ref={mainContentRef} className="main-content">
+                    <section id="course-description" className="course-description-section">
+                        <p>
+                            <blockquote>
+                            <em>
+                                         Recent years have witnessed an explosion in the volume and variety of data
+                                         collected in
+                                         all scientific disciplines and industrial settings. Such massive data sets
+                                         present
+                                         a
+                                         number of challenges to researchers in statistics and machine learning.
+                                         High-dimensional statistics provides a self-contained framework for tackling
+                                         these
+                                         challenges. The field is central to helping researchers in statistics, machine
+                                         learning, and related areas understand, apply, and adapt modern statistical
+                                         methods
+                                         suited to large-scale data.
+                                     </em>
+                                 </blockquote>
                              </p>
-                             <p> Martin J. Wainwright</p>
+
+                             <b> Martin J. Wainwright</b>
                          </section>
 
                          <section id="instructor" className="instructor-section">
@@ -110,24 +126,68 @@ const Home = () => {
                              </div>
                          </section>
 
-                         <section id="assistants" className="assistants-section">
+                         <section id="assistants" className="head-assistants-section">
+                             <h2>Head Assistant</h2>
+                             <div className="head-card-container">
+                                 <div className="head-assistant-card">
+                                     <div className="assistant-photo">
+                                         <img src="/images/AliNajar.jpg" alt="Ali Najar" className="assistant-photo"/>
+                                     </div>
+                                     <div className="assistant-info">
+                                         <h3>Ali Najar</h3>
+                                         <p>Email: anajar13750@gmail.com</p>
+                                         <p>Head TA</p>
+                                         <div className="social-icons">
+                                             <a href="https://github.com/Ali-Najar" target="_blank"
+                                                rel="noopener noreferrer">
+                                                 <img
+                                                     src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
+                                                     alt="GitHub" width="24" height="24"/>
+                                             </a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </section>
+
+                         <section className="assistants-section">
 
 
                              <h2>Teaching Assistants</h2>
                              <div className="card-container">
-                                 <div className="assistant-card">
-                                     <img src="/images/AliNajar.jpg" alt="Ali Najar"/>
-                                     <h3>Ali Najar</h3>
-                                     <p>Teaching Assistant</p>
-                                 </div>
                                  <div className="assistant-card">
                                      <img src="/images/AliAbbasi.jpg" alt="Ali Abbasi"/>
                                      <h3>Ali Abbasi</h3>
                                      <p>Teaching Assistant</p>
                                  </div>
                                  <div className="assistant-card">
+                                     <img src="/images/default.jpg" alt="Nahal Mirzaei"/>
+                                     <h3>Nahal Mirzaei</h3>
+                                     <p>Teaching Assistant</p>
+                                 </div>
+                                 <div className="assistant-card">
                                      <img src="/images/AmirHosseinNaghdi.jpg" alt="AmirHossein Naghdi"/>
                                      <h3>AmirHossein Naghdi</h3>
+                                     <p>Teaching Assistant</p>
+                                 </div>
+                                 <div className="assistant-card">
+                                     <img src="/images/KiarashJoolaei.jpg" alt="Kiarash Joolaei"/>
+                                     <h3>Kiarash Joolaei</h3>
+                                     <p>Teaching Assistant</p>
+                                 </div>
+                                 <div className="assistant-card">
+                                     <img src="/images/ErfanSobhaei.jpg" alt="Erfan Sobhaei"/>
+                                     <h3>Erfan Sobhaei</h3>
+                                     <p>Teaching Assistant</p>
+                                 </div>
+                                 <div className="assistant-card">
+                                     <img src="/images/default.jpg" alt="Sara Karimi"/>
+                                     <h3>Sara Karimi</h3>
+                                     <p>Teaching Assistant</p>
+                                 </div>
+                                 <div className="assistant-card">
+                                     <img src="/images/default.jpg" alt="Alireza Mirrokni"/>
+                                     <h3>Alireza Mirrokni</h3>
                                      <p>Teaching Assistant</p>
                                  </div>
                                  <div className="assistant-card">
@@ -146,13 +206,8 @@ const Home = () => {
                                      <p>Teaching Assistant</p>
                                  </div>
                                  <div className="assistant-card">
-                                     <img src="/images/ErfanSobhaei.jpg" alt="Erfan Sobhaei"/>
-                                     <h3>Erfan Sobhaei</h3>
-                                     <p>Teaching Assistant</p>
-                                 </div>
-                                 <div className="assistant-card">
-                                     <img src="/images/KiarashJoolaei.jpg" alt="Kiarash Joolaei"/>
-                                     <h3>Kiarash Joolaei</h3>
+                                     <img src="/images/SepehrZolfaghari.jpg" alt="Sepehr Zolfaghari"/>
+                                     <h3>Sepehr Zolfaghari</h3>
                                      <p>Teaching Assistant</p>
                                  </div>
                                  <div className="assistant-card">
@@ -171,21 +226,6 @@ const Home = () => {
                                      <p>Teaching Assistant</p>
                                  </div>
                                  <div className="assistant-card">
-                                     <img src="/images/SepehrZolfaghari.jpg" alt="Sepehr Zolfaghari"/>
-                                     <h3>Sepehr Zolfaghari</h3>
-                                     <p>Teaching Assistant</p>
-                                 </div>
-                                 <div className="assistant-card">
-                                     <img src="/images/default.jpg" alt="Sara Karimi"/>
-                                     <h3>Sara Karimi</h3>
-                                     <p>Teaching Assistant</p>
-                                 </div>
-                                 <div className="assistant-card">
-                                     <img src="/images/default.jpg" alt="Nahal Mirzaei"/>
-                                     <h3>Nahal Mirzaei</h3>
-                                     <p>Teaching Assistant</p>
-                                 </div>
-                                 <div className="assistant-card">
                                      <img src="/images/default.jpg" alt="Amirreza Velae"/>
                                      <h3>Amirreza Velae</h3>
                                      <p>Teaching Assistant</p>
@@ -195,18 +235,13 @@ const Home = () => {
                                      <h3>Shayan Baghayi Nejad</h3>
                                      <p>Teaching Assistant</p>
                                  </div>
-                                 <div className="assistant-card">
-                                     <img src="/images/default.jpg" alt="Alireza Mirrokni"/>
-                                     <h3>Alireza Mirrokni</h3>
-                                     <p>Teaching Assistant</p>
-                                 </div>
                              </div>
                          </section>
 
                          <section id="grading" className="learning-objectives-section">
                              <h2>Grading</h2>
                              <p>
-                                 The grading for the High Dimensional Statistics course is structured as follows:
+                                 The grading for this course :
                              </p>
                              <ul className="grading-ul">
                                  <li>
@@ -242,7 +277,8 @@ const Home = () => {
                                      <tbody>
                                      <tr>
                                          <td>Week 1 - Session 1</td>
-                                         <td>Introduction & Importance of High-Dimensional Estimation (Sparse Recovery
+                                         <td>Introduction & Importance of High-Dimensional Estimation (Sparse
+                                             Recovery
                                              Example)
                                          </td>
                                          <td className="col-right">1</td>
@@ -455,10 +491,12 @@ const Home = () => {
                              <h3>Course References</h3>
                              <ul className="grading-ul">
                                  <li>
-                                     Martin J. Wainwright, “High-Dimensional Statistics: A Non-Asymptotic Viewpoint,” 2019.
+                                     Martin J. Wainwright, “High-Dimensional Statistics: A Non-Asymptotic
+                                     Viewpoint,” 2019.
                                  </li>
                                  <li>
-                                     Roman Vershynin, “High-Dimensional Probability: An Introduction with Applications in Data Science,” 2025.
+                                     Roman Vershynin, “High-Dimensional Probability: An Introduction with
+                                     Applications in Data Science,” 2025.
                                  </li>
                              </ul>
                          </section>
@@ -469,9 +507,8 @@ const Home = () => {
                          <div className="sidebar-content">
                              <h4>HDS Course</h4>
                              <ul>
-                                 <li><a href="#course-description">Course Description</a></li>
                                  <li><a href="#instructor">Instructor</a></li>
-                                 <li><a href="#teaching-assistants">Teaching Assistants</a></li>
+                                 <li><a href="#assistants">Teaching Assistants</a></li>
                                  <li><a href="#grading">Grading</a></li>
                                  <li><a href="#schedule">Schedule</a></li>
                                  <li><a href="#course-references">Course References</a></li>
