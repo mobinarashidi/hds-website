@@ -121,6 +121,7 @@
   .navbar-menu.open {
     left: auto;
   }
+
 }
 
 .dropdown-menu {
@@ -140,4 +141,10 @@
 
 .dropdown-menu div:hover {
   background-color: #34495e;
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: 0.8em;
+  }
 }

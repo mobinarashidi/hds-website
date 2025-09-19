@@ -35,7 +35,7 @@ const Navbar = () => {
           Lectures
         </Link>
         <Link to="/TAClasses" onClick={closeMenu}>
-          TA classes
+          Supplementary Lectures
         </Link>
         <Link to="/HomeWorks" onClick={closeMenu}>
           Homeworks

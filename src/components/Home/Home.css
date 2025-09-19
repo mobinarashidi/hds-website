@@ -429,3 +429,133 @@ section.fade-in {
     font-size: 0.9rem;
     color: #555;
 }
+
+.course-description-section p {
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+
+.grading-ul {
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.clean-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    text-align: justify;
+    font-size: 0.9em;
+}
+
+.clean-table th, .clean-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.clean-table th {
+    background-color: #f2f2f2;
+    color: #333;
+    text-align: center;
+}
+
+.clean-table .col-right {
+    text-align: center;
+}
+
+.clean-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.exam-cell {
+    background-color: #ffeb3b !important;
+    text-align: center !important;
+    font-weight: bold;
+    margin-left: 5%;
+}
+
+.final-exam-cell {
+    background-color: #ffeb3b !important;
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 2rem 1rem;
+    }
+
+    .instructor-section,
+    .assistants-section {
+        padding: 1rem;
+    }
+
+    .ta-card,
+    .instructor-card {
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    .ta-image,
+    .instructor-photo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .assistant-card img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .social-icons img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 0.9em;
+    }
+
+    .instructor-info h3 {
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    .clean-table {
+        font-size: 0.7em;
+    }
+}
+
+.arrow-icon {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: 2px #2c3e50;
+    text-stroke: 2px #2c3e50;
+    transition: all 0.3s ease;
+    animation: outlineBounce 2s infinite;
+}
+
+.scroll-down-btn:hover .arrow-icon {
+    color: #1abc9c;
+    -webkit-text-stroke: 2px #1abc9c;
+    text-stroke: 2px #1abc9c;
+}
+
+@keyframes outlineBounce {
+    0%, 100% {
+        transform: translateY(0);
+        -webkit-text-stroke-width: 2px;
+    }
+    50% {
+        transform: translateY(3px);
+        -webkit-text-stroke-width: 3px;
+    }
+}

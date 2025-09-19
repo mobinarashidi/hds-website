@@ -4,9 +4,11 @@ import './Footer.css';
 const Footer = () => {
     return (
         <footer className="footer">
-            <p>
-                Made with <span className="heart-icon">❤️</span>
-            </p>
+            <div className="footer-bottom">
+                <p>
+                    Designed with <span className="heart-icon">❤️</span> by the Course Team
+                </p>
+            </div>
         </footer>
     );
 };
