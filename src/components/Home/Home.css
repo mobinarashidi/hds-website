@@ -589,7 +589,7 @@ section.fade-in {
 
 
 .head-assistants-section {
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .head-card-container {
@@ -601,10 +601,10 @@ section.fade-in {
 .head-assistant-card {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
     background-color: #f9f9f9;
-    padding: 1rem;
-    border-radius: 6px;
+    padding: 1.5rem;
+    border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     width: 80%;
 }

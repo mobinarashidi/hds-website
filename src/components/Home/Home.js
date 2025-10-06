@@ -383,7 +383,7 @@ const Home = () => {
                                          <td>Week 10 - Session 1</td>
                                          <td>Concentration of Covariance Estimator around its Mean (5)</td>
                                          <td className="col-right">3</td>
-                                         <td className="col-right">5, 6</td>
+                                         <td className="col-right">5,6</td>
                                      </tr>
                                      <tr>
                                          <td>Week 10 - Session 2</td>
