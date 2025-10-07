@@ -232,7 +232,7 @@ const Home = () => {
                                 <p>Website Developer</p>
                             </div>
                             <div className="assistant-card">
-                                <img src="/images/default.jpg" alt="Ali Moghadasi"/>
+                                <img src="/images/AliMoghadasi.jpg" alt="Ali Moghadasi"/>
                                 <h3>Ali Moghadasi</h3>
                                 <p>Website Developer</p>
                             </div>
