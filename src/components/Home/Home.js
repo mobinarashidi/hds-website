@@ -202,11 +202,6 @@ const Home = () => {
                                 <p>Teaching Assistant</p>
                             </div>
                             <div className="assistant-card">
-                                <img src="/images/MahshadMoradi.JPEG" alt="Mahshad Moradi"/>
-                                <h3>Mahshad Moradi</h3>
-                                <p>Teaching Assistant</p>
-                            </div>
-                            <div className="assistant-card">
                                 <img src="/images/MehdiZinati.JPG" alt="Mehdi Zinati"/>
                                 <h3>Mehdi Zinati</h3>
                                 <p>Teaching Assistant</p>
