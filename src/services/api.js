@@ -1,5 +1,4 @@
-const API_BASE_URL =
-  process.env.REACT_APP_API_URL || "https://hds-website-backend.vercel.app/api";
+const API_BASE_URL = "http://localhost:8000/api";
 
 // Helper function to handle API responses
 const handleResponse = async (response) => {
@@ -249,9 +248,9 @@ export const adminAPI = {
     return handleResponse(response);
   },
 
-  deleteWeeklyContent: async (weekNumber) => {
+  deleteWeeklyContent: async (id) => {
     const response = await fetch(
-      `${API_BASE_URL}/admin/weekly-content/${weekNumber}/`,
+      `${API_BASE_URL}/admin/weekly-content/${id}/`,
       {
         method: "DELETE",
         headers: {
@@ -293,17 +292,14 @@ export const adminAPI = {
     return handleResponse(response);
   },
 
-  deleteTAClass: async (weekNumber) => {
-    const response = await fetch(
-      `${API_BASE_URL}/admin/ta-classes/${weekNumber}/`,
-      {
-        method: "DELETE",
-        headers: {
-          "X-Requested-With": "XMLHttpRequest",
-        },
-        credentials: "include",
-      }
-    );
+  deleteTAClass: async (id) => {
+    const response = await fetch(`${API_BASE_URL}/admin/ta-classes/${id}/`, {
+      method: "DELETE",
+      headers: {
+        "X-Requested-With": "XMLHttpRequest",
+      },
+      credentials: "include",
+    });
     return handleResponse(response);
   },
 };

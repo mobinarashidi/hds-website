@@ -48,10 +48,10 @@ const AdminLectureManager = () => {
     setShowForm(true);
   };
 
-  const handleDelete = async (weekNumber) => {
+  const handleDelete = async (lecture) => {
     if (window.confirm("Are you sure you want to delete this lecture?")) {
       try {
-        await adminAPI.deleteWeeklyContent(weekNumber);
+        await adminAPI.deleteWeeklyContent(lecture.id);
         fetchLectures();
       } catch (err) {
         setError("Failed to delete lecture");
@@ -129,7 +129,7 @@ const AdminLectureManager = () => {
                   Edit
                 </button>
                 <button
-                  onClick={() => handleDelete(lecture.week_number)}
+                  onClick={() => handleDelete(lecture)}
                   className="delete-btn"
                 >
                   Delete

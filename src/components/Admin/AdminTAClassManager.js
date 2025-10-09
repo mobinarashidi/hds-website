@@ -48,10 +48,10 @@ const AdminTAClassManager = () => {
     setShowForm(true);
   };
 
-  const handleDelete = async (weekNumber) => {
+  const handleDelete = async (taClass) => {
     if (window.confirm("Are you sure you want to delete this TA class?")) {
       try {
-        await adminAPI.deleteTAClass(weekNumber);
+        await adminAPI.deleteTAClass(taClass.id);
         fetchTAClasses();
       } catch (err) {
         setError("Failed to delete TA class");
@@ -126,7 +126,7 @@ const AdminTAClassManager = () => {
                   Edit
                 </button>
                 <button
-                  onClick={() => handleDelete(taClass.week_number)}
+                  onClick={() => handleDelete(taClass)}
                   className="delete-btn"
                 >
                   Delete
