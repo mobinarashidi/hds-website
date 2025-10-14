@@ -1,4 +1,5 @@
-const API_BASE_URL = "http://localhost:8000/api";
+// const API_BASE_URL = "http://localhost:8000/api";
+const API_BASE_URL = "https://hds-website-backend.vercel.app/api";
 
 // Helper function to handle API responses
 const handleResponse = async (response) => {
