@@ -231,11 +231,6 @@ const Home = () => {
                                 <h3>Ali Moghadasi</h3>
                                 <p>Website Developer</p>
                             </div>
-                            <div className="assistant-card">
-                                <img src="/images/ArmanTahmasebi.jpg" alt="Arman Tahmasebi"/>
-                                <h3>Arman Tahmasebi</h3>
-                                <p>Recording Manager</p>
-                            </div>
                         </div>
                     </section>
 
