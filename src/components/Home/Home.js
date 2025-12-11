@@ -222,6 +222,11 @@ const Home = () => {
                                 <p>Teaching Assistant</p>
                             </div>
                             <div className="assistant-card">
+                                <img src="/images/MohammadHosseinHeidari.jpg" alt="Mohammad Hossein Heidari"/>
+                                <h3>Mohammad Hossein Heidari</h3>
+                                <p>Teaching Assistant</p>
+                            </div>
+                            <div className="assistant-card">
                                 <img src="/images/MobinaRashidi.png" alt="Mobina Rashidi"/>
                                 <h3>Mobina Rashidi</h3>
                                 <p>Website Developer</p>
